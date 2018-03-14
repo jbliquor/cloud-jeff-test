@@ -19,6 +19,37 @@
 	<build>
 		<plugins>
 			<plugin>
+  <groupId>org.mule.tools.maven</groupId>
+  <artifactId>mule-maven-plugin</artifactId>
+  <version>2.2.1</version>
+      <configuration>
+        <application>${APPLICATION}</application>
+        <applicationName>${DEPLOYMENT_NAME}</applicationName>
+        <deploymentType>${DEPLOYMENT_TYPE}</deploymentType>
+         <!-- muleVersion is the runtime version as it appears on the CloudHub interface -->
+        <muleVersion>${MULE_VERSION}</muleVersion>
+        <username>myUsername</username>
+        <password>myPassword</password>
+        <redeploy>true</redeploy>
+        <environment>${CLOUDHUB_ENVIRONMENT}</environment>
+        <workerType>${WORKER_TYPE}</workerType>
+        <workers>${WORKERS}</workers>
+        <properties>
+        	<mule.env>${PROPERTIES_ENVIRONMENT}</mule.env>
+        	<vault.key>${PROPERTIES_KEY}</vault.key>
+        </properties>
+    </configuration>
+    <executions>
+        <execution>
+            <id>deploy</id>
+            <phase>deploy</phase>
+            <goals>
+                <goal>deploy</goal>
+            </goals>
+        </execution>
+    </executions>
+</plugin>
+			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-app-maven-plugin</artifactId>
 				<version>${mule.tools.version}</version>
