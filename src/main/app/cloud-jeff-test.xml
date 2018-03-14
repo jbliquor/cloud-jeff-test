@@ -11,7 +11,7 @@ http://www.mulesoft.org/schema/mule/objectstore http://www.mulesoft.org/schema/m
     <http:request-config name="HTTP_Request_Configuration" host="${onprem.host}" port="${onprem.port}" doc:name="HTTP Request Configuration"/>
     <flow name="jb-jeff-testFlow">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/hello" doc:name="HTTP"/>
-        <set-payload value="This test is from the cloud" doc:name="Set Payload"/>
+        <set-payload value="This test is from the updated cloud" doc:name="Set Payload"/>
     </flow>
     <flow name="jb-jeff-testFlow1">
         <http:listener config-ref="HTTP_Listener_Configuration" path="/onprem" doc:name="HTTP"/>
