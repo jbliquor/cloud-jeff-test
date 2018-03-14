@@ -28,12 +28,13 @@
         <deploymentType>${DEPLOYMENT_TYPE}</deploymentType>
          <!-- muleVersion is the runtime version as it appears on the CloudHub interface -->
         <muleVersion>${MULE_VERSION}</muleVersion>
-        <username>jeffreyalanrogers</username>
-        <password>Blizzard16</password>
+        <username>${CLOUDHUB_USERNAME}</username>
+        <password>${CLOUDHUB_PASSWORD}</password>
         <redeploy>true</redeploy>
         <environment>${CLOUDHUB_ENVIRONMENT}</environment>
         <workerType>${WORKER_TYPE}</workerType>
         <workers>${WORKERS}</workers>
+        <region>${REGION}</region>
         <properties>
         	<mule.env>${PROPERTIES_ENVIRONMENT}</mule.env>
         	<vault.key>${PROPERTIES_KEY}</vault.key>
@@ -49,6 +50,7 @@
         </execution>
     </executions>
 </plugin>
+
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-app-maven-plugin</artifactId>
@@ -94,6 +96,7 @@
 <plugin>
   <groupId>org.apache.maven.plugins</groupId>
   <artifactId>maven-deploy-plugin</artifactId>
+  <version>2.8.2</version>
   <configuration>
     <skip>true</skip>
   </configuration>
