@@ -3,4 +3,5 @@
     <name>cloud-jeff-test</name>
     <description></description>
     <muleExtension name="ObjectStore" qualifier="org.mule.tooling.ui.contribution.objectstore.3.6.0"/>
+    <muleExtension name="Cloudhub" qualifier="org.mule.tooling.ui.contribution.cloudhub.3.6.0"/>
 </mule-project>
