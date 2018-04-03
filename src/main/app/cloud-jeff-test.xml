@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <mule xmlns:api-platform-gw="http://www.mulesoft.org/schema/mule/api-platform-gw"
-	xmlns:apikit="http://www.mulesoft.org/schema/mule/apikit" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:cloudhub="http://www.mulesoft.org/schema/mule/cloudhub" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:objectstore="http://www.mulesoft.org/schema/mule/objectstore" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
-http://www.mulesoft.org/schema/mule/api-platform-gw http://www.mulesoft.org/schema/mule/api-platform-gw/current/mule-api-platform-gw.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
+	xmlns:apikit="http://www.mulesoft.org/schema/mule/apikit" xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:cloudhub="http://www.mulesoft.org/schema/mule/cloudhub" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns:objectstore="http://www.mulesoft.org/schema/mule/objectstore" xmlns:spring="http://www.springframework.org/schema/beans" xmlns:tracking="http://www.mulesoft.org/schema/mule/ee/tracking" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/api-platform-gw http://www.mulesoft.org/schema/mule/api-platform-gw/current/mule-api-platform-gw.xsd
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-current.xsd
 http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
 http://www.mulesoft.org/schema/mule/objectstore http://www.mulesoft.org/schema/mule/objectstore/current/mule-objectstore.xsd
 http://www.mulesoft.org/schema/mule/ee/tracking http://www.mulesoft.org/schema/mule/ee/tracking/current/mule-tracking-ee.xsd
 http://www.mulesoft.org/schema/mule/cloudhub http://www.mulesoft.org/schema/mule/cloudhub/current/mule-cloudhub.xsd
 http://www.mulesoft.org/schema/mule/apikit http://www.mulesoft.org/schema/mule/apikit/current/mule-apikit.xsd">
-	<api-platform-gw:api apiName="${apiName}" version="${apiVersion}" flowRef="cloud-jeff-test-main" />
+	<api-platform-gw:api apiName="${apiName}" version="${apiVersion}" flowRef="cloud-jeff-test-main" doc:name="API Autodiscovery"/>
     <http:request-config name="HTTP_Request_Configuration" host="${onprem.host}" port="${onprem.port}" doc:name="HTTP Request Configuration" />
     <http:listener-config name="cloud-jeff-test-httpListenerConfig" host="0.0.0.0" port="8081" doc:name="HTTP Listener Configuration"/>
     <apikit:config xmlns:apikit="http://www.mulesoft.org/schema/mule/apikit" name="cloud-jeff-test-config" raml="cloud-jeff-test.raml" consoleEnabled="false" doc:name="Router"/>
+    <cloudhub:config name="Cloudhub__Basic_Auth_Authentication" username="jblcMulesoftAdmin" password="Unic0rn$aintr3al!" doc:name="Cloudhub: Basic Auth Authentication"/>
     <flow name="cloud-jeff-test-main">
         <http:listener config-ref="cloud-jeff-test-httpListenerConfig" path="/*" doc:name="HTTP"/>
         <apikit:router xmlns:apikit="http://www.mulesoft.org/schema/mule/apikit" config-ref="cloud-jeff-test-config" doc:name="APIkit Router"/>
