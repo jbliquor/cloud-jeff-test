@@ -30,9 +30,8 @@ http://www.mulesoft.org/schema/mule/apikit http://www.mulesoft.org/schema/mule/a
         </rollback-exception-strategy>
     </flow>
     <flow name="get:/hello:cloud-jeff-test-config">
-        <set-payload value="This test is from the updated cloud" doc:name="Set Payload"/>
         <logger message="Got the message" level="INFO" doc:name="Logger"/>
-
+                <set-payload value="This test is from the updated cloud" doc:name="Set Payload" />
     </flow>
     <flow name="get:/onprem:cloud-jeff-test-config">
             <http:request config-ref="HTTP_Request_Configuration" path="/hello" method="GET" doc:name="HTTP" />
