@@ -38,6 +38,10 @@
         <properties>
         	<mule.env>${PROPERTIES_ENVIRONMENT}</mule.env>
         	<vault.key>${PROPERTIES_KEY}</vault.key>
+        	<apiName>${apiName}</apiName>
+        	<apiVersion>${apiVersion}</apiVersion>
+        	<anypoint.platform.client_id>${client_id}</anypoint.platform.client_id>
+        	<anypoint.platform.client_secret>${client_secret}</anypoint.platform.client_secret>
         </properties>
     </configuration>
     <executions>
